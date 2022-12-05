@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Blog.Business.Concrete
 {
-    public class ArticleManager : IArticleService
+    public class ArticleService : IArticleService
     {
         private readonly IUnitOfWork unitOfWork;
 
-        public ArticleManager(IUnitOfWork unitOfWork)
+        public ArticleService(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
         }

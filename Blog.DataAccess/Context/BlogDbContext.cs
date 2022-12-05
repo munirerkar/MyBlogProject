@@ -11,7 +11,7 @@ namespace Blog.DataAccess.Context
 {
     public class BlogDbContext : DbContext
     {
-      
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer(@"Server=DESKTOP-3AR1L63; Database=MyBlogDB; Trusted_Connection=True; TrustServerCertificate=True;");

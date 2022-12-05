@@ -1,16 +1,21 @@
+using Blog.Business.Abstract;
+using Blog.Business.Concrete;
 using Blog.Business.Extensions;
-using Blog.DataAccess.Context;
 using Blog.DataAccess.Extensions;
+using Blog.DataAccess.Repositories.Abstract;
+using Blog.DataAccess.Repositories.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.LoadDataLayerExtension(builder.Configuration);
+builder.Services.LoadDataLayerExtension();
 builder.Services.LoadServiceLayerExtension();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 //builder.Services.AddDbContext<BlogDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnetion")));
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

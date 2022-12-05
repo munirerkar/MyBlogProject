@@ -33,7 +33,7 @@ namespace Blog.DataAccess.UnitOfWorks
         }
 
         IRepository<T> IUnitOfWork.GetRepository<T>()
-        {
+        {       
             return new Repository<T>(dbContext);
         }
     }
