@@ -1,5 +1,6 @@
 ﻿using Blog.Business.Abstract;
 using Blog.Business.Concrete;
+using Blog.DataAccess.UnitOfWorks;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Blog.Business.Extensions
         public static IServiceCollection LoadServiceLayerExtension(this IServiceCollection services)
         {
             services.AddScoped<IArticleService, ArticleService>();
+            
             return services;
         }
     }
