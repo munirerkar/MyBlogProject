@@ -1,4 +1,5 @@
 ﻿using Blog.Entities.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Blog.DataAccess.Context
 {
-    public class BlogDbContext : DbContext
+    public class BlogDbContext : IdentityDbContext<AppUser,AppRole,Guid,AppUserClaim,AppUserRole,AppUserLogin,AppRoleClaim,AppUserToken>
     {
         protected BlogDbContext()
         {
@@ -31,7 +32,7 @@ namespace Blog.DataAccess.Context
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            
+            base.OnModelCreating(builder);
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
