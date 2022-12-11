@@ -13,6 +13,7 @@ namespace Blog.DataAccess.Mappings
     {
         public void Configure(EntityTypeBuilder<AppUserToken> builder)
         {
+            // Composite primary key consisting of the UserId, LoginProvider and Name
             builder.HasKey(t => new { t.UserId, t.LoginProvider, t.Name });
 
             // Limit the size of the composite key columns due to common DB restrictions

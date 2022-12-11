@@ -18,6 +18,7 @@ namespace Blog.DataAccess.Mappings
 
             // Maps to the AspNetUserRoles table
             builder.ToTable("AspNetUserRoles");
+
             builder.HasData(new AppUserRole
             {
                 UserId = Guid.Parse("2A5BC656-D774-465C-9447-6E439052872A"),

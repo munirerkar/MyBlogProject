@@ -45,20 +45,20 @@ namespace Blog.DataAccess.Mappings
                 NormalizedName = "SUPERADMIN",
                 ConcurrencyStamp = Guid.NewGuid().ToString()
             };
-            /*var admin = new AppRole
+            var admin = new AppRole
             {
                 Id = Guid.Parse("962E27A6-0CC4-4FC3-B160-84D8CE625EF9"),
                 Name = "Admin",
                 NormalizedName = "ADMIN",
                 ConcurrencyStamp = Guid.NewGuid().ToString()
-            };*/
-            /*var user = new AppRole
+            };
+            var user = new AppRole
             {
                 Id = Guid.Parse("8B40F3CF-0EC4-4607-A442-D4FF925A4F5F"),
                 Name = "User",
                 NormalizedName = "USER",
                 ConcurrencyStamp = Guid.NewGuid().ToString()
-            };*/
+            };
             builder.HasData(superadmin);
         }
     }
