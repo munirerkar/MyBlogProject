@@ -49,27 +49,28 @@ namespace Blog.DataAccess.Mappings
 
             var superadmin = new AppUser
             {
-                Id = Guid.Parse("2A5BC656-D774-465C-9447-6E439052872A"),
+                Id = Guid.Parse("CB94223B-CCB8-4F2F-93D7-0DF96A7F065C"),
                 UserName = "superadmin@gmail.com",
                 NormalizedUserName = "SUPERADMIN@GMAIL.COM",
                 Email = "superadmin@gmail.com",
                 NormalizedEmail = "SUPERADMIN@GMAIL.COM",
-                PhoneNumber = "+905438765545",
-                FirstName = "Mano",
-                LastName = "Ekr",
+                PhoneNumber = "+905439999999",
+                FirstName = "Cem",
+                LastName = "Keskin",
                 PhoneNumberConfirmed = true,
                 EmailConfirmed = true,
                 SecurityStamp = Guid.NewGuid().ToString()
             };
             superadmin.PasswordHash = CreatePasswordHash(superadmin, "123456");
+
             var admin = new AppUser
             {
-                Id = Guid.Parse("1074D9A7-9EF6-417C-9543-B9A912D40950"),
+                Id = Guid.Parse("3AA42229-1C0F-4630-8C1A-DB879ECD0427"),
                 UserName = "admin@gmail.com",
                 NormalizedUserName = "ADMIN@GMAIL.COM",
                 Email = "admin@gmail.com",
                 NormalizedEmail = "ADMIN@GMAIL.COM",
-                PhoneNumber = "+905438763549",
+                PhoneNumber = "+905439999988",
                 FirstName = "Admin",
                 LastName = "User",
                 PhoneNumberConfirmed = false,
@@ -77,7 +78,9 @@ namespace Blog.DataAccess.Mappings
                 SecurityStamp = Guid.NewGuid().ToString()
             };
             admin.PasswordHash = CreatePasswordHash(admin, "123456");
+
             builder.HasData(superadmin, admin);
+
         }
         private string CreatePasswordHash(AppUser user, string password)
         {

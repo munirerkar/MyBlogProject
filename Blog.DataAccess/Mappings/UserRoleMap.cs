@@ -21,13 +21,13 @@ namespace Blog.DataAccess.Mappings
 
             builder.HasData(new AppUserRole
             {
-                UserId = Guid.Parse("2A5BC656-D774-465C-9447-6E439052872A"),
-                RoleId = Guid.Parse("960D01DE-1859-48D9-ADD0-4779D0D8DB1A"),
+                UserId = Guid.Parse("CB94223B-CCB8-4F2F-93D7-0DF96A7F065C"),
+                RoleId = Guid.Parse("16EA936C-7A28-4C30-86A2-9A9704B6115E")
             },
             new AppUserRole
             {
-                UserId = Guid.Parse("1074D9A7-9EF6-417C-9543-B9A912D40950"),
-                RoleId = Guid.Parse("8B40F3CF-0EC4-4607-A442-D4FF925A4F5F"),
+                UserId = Guid.Parse("3AA42229-1C0F-4630-8C1A-DB879ECD0427"),
+                RoleId = Guid.Parse("7CB750CF-3612-4FB4-9F7D-A38BA8F16BF4")
             });
         }
     }
