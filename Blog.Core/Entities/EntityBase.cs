@@ -15,6 +15,6 @@ namespace Blog.Core.Entities
         public virtual DateTime CreatedDate { get; set; } = DateTime.Now;
         public virtual DateTime ModifiedDate { get; set; }
         public virtual DateTime DeletedDate { get; set; }
-        public virtual bool IsDeleted { get; set; }
+        public virtual bool IsDeleted { get; set; } = false;
     }
 }
