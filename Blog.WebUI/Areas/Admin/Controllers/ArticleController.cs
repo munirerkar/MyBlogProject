@@ -1,16 +1,14 @@
 ﻿using Blog.Business.Abstract;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
-    public class HomeController : Controller
+    public class ArticleController : Controller
     {
         private readonly IArticleService articleService;
 
-        public HomeController(IArticleService articleService)
+        public ArticleController(IArticleService articleService)
         {
             this.articleService = articleService;
         }
@@ -18,6 +16,12 @@ namespace Blog.WebUI.Areas.Admin.Controllers
         {
             var articles = await articleService.GetAllArticlesWithCategoryNonDeletedAsync();
             return View(articles);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Add()
+        {
+            
+            return View();
         }
     }
 }

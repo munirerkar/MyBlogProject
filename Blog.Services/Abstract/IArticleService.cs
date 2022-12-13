@@ -10,6 +10,6 @@ namespace Blog.Business.Abstract
 {
     public interface IArticleService
     {
-        Task<List<ArticleDto>> GetAllArticlesAsync();
+        Task<List<ArticleDto>> GetAllArticlesWithCategoryNonDeletedAsync();
     }
 }
