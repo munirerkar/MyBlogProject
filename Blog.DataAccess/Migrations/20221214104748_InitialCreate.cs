@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Blog.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitailCreate : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,11 +34,11 @@ namespace Blog.DataAccess.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -54,11 +54,11 @@ namespace Blog.DataAccess.Migrations
                     FileName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FileType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -133,11 +133,11 @@ namespace Blog.DataAccess.Migrations
                     ImageId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -252,9 +252,9 @@ namespace Blog.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { new Guid("16ea936c-7a28-4c30-86a2-9a9704b6115e"), "4cbd0880-4a83-40a0-864a-b5f1cbdc4ea0", "Superadmin", "SUPERADMIN" },
-                    { new Guid("7cb750cf-3612-4fb4-9f7d-a38ba8f16bf4"), "8eecc16c-36e5-4a8d-90ee-6def10c2edee", "Admin", "ADMIN" },
-                    { new Guid("edf6c246-41d8-475f-8d92-41dddac3aefb"), "6d7731db-069c-4bc3-a5c0-4c63533d4911", "User", "USER" }
+                    { new Guid("16ea936c-7a28-4c30-86a2-9a9704b6115e"), "13c76e52-531f-49c5-9025-baf4a8163568", "Superadmin", "SUPERADMIN" },
+                    { new Guid("7cb750cf-3612-4fb4-9f7d-a38ba8f16bf4"), "45f9d7b1-b996-4fe6-b6ab-57bf5db87f80", "Admin", "ADMIN" },
+                    { new Guid("edf6c246-41d8-475f-8d92-41dddac3aefb"), "45d04f9c-83f5-4a57-b1f9-02398aab8155", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -262,8 +262,8 @@ namespace Blog.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "DeletedBy", "DeletedDate", "IsDeleted", "ModifiedBy", "ModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("93474aba-5916-42e7-a39f-b2ad533546c0"), "Admin Test", new DateTime(2022, 12, 12, 10, 25, 36, 557, DateTimeKind.Local).AddTicks(9965), "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Visual Studio" },
-                    { new Guid("a751f387-b6b6-4018-9a86-68254c85a3e4"), "Admin Test", new DateTime(2022, 12, 12, 10, 25, 36, 557, DateTimeKind.Local).AddTicks(9960), "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), false, "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "ASP.NET Core" }
+                    { new Guid("93474aba-5916-42e7-a39f-b2ad533546c0"), "Admin Test", new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(8815), "Admin Test", null, false, "Admin Test", null, "Visual Studio" },
+                    { new Guid("a751f387-b6b6-4018-9a86-68254c85a3e4"), "Admin Test", new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(8811), "Admin Test", null, false, "Admin Test", null, "ASP.NET Core" }
                 });
 
             migrationBuilder.InsertData(
@@ -271,8 +271,8 @@ namespace Blog.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "DeletedBy", "DeletedDate", "FileName", "FileType", "IsDeleted", "ModifiedBy", "ModifiedDate" },
                 values: new object[,]
                 {
-                    { new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), "Admin Test", new DateTime(2022, 12, 12, 10, 25, 36, 558, DateTimeKind.Local).AddTicks(212), "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/vstest", "png", false, "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), "Admin Test", new DateTime(2022, 12, 12, 10, 25, 36, 558, DateTimeKind.Local).AddTicks(208), "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "images/testimage", "jpg", false, "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), "Admin Test", new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(9169), "Admin Test", null, "images/vstest", "png", false, "Admin Test", null },
+                    { new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), "Admin Test", new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(9164), "Admin Test", null, "images/testimage", "jpg", false, "Admin Test", null }
                 });
 
             migrationBuilder.InsertData(
@@ -280,8 +280,8 @@ namespace Blog.DataAccess.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "ImageId", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"), 0, "337b1a94-c695-4aa6-bdcb-3a69d6a2ce43", "admin@gmail.com", false, "Admin", new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), "User", false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEDYzJES/cQqClBV5uBmWqEBQr3UCeaesUorR425MmATaqZW4isfksjxKdpr0N9Dqbg==", "+905439999988", false, "64bb5c60-2e8d-42df-b341-0cdd452cd8f7", false, "admin@gmail.com" },
-                    { new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"), 0, "ad03f374-e2d1-4fe0-b120-b470b38584e6", "superadmin@gmail.com", true, "Cem", new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), "Keskin", false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEEs+5lvTAPXMwqNEK0qVSzESgDxEXonglFQNgKjB/+QqbPoV8AtUW134UJXZazP4Eg==", "+905439999999", true, "cea5e968-22e7-43c3-b141-58ca22b2dbbf", false, "superadmin@gmail.com" }
+                    { new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"), 0, "a8c9fbb4-b2ed-49e7-b30b-63f06719c472", "admin@gmail.com", false, "Admin", new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), "User", false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEN5ngtjGvdBt+odM2kPOH4HiV6R1q6YwFOeEu2DBxEWoNdctz5JxOLtqn8bUHlhGlQ==", "+905439999988", false, "3dd6fa18-6f16-4876-a059-4aee6c051678", false, "admin@gmail.com" },
+                    { new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"), 0, "72cd4bfd-9cb2-4f0d-8fa4-5b773505ff66", "superadmin@gmail.com", true, "Cem", new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), "Keskin", false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAELuByWKgHbKijx8iNKUMkM9Z5ENy2Y2JR0Es+o67ln1caXNYGHDpijx+gl7qEDzm8A==", "+905439999999", true, "52d73f9d-cff7-4cd9-9808-505f787a03ea", false, "superadmin@gmail.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -289,8 +289,8 @@ namespace Blog.DataAccess.Migrations
                 columns: new[] { "Id", "CategoryId", "Content", "CreatedBy", "CreatedDate", "DeletedBy", "DeletedDate", "ImageId", "IsDeleted", "ModifiedBy", "ModifiedDate", "Title", "UserId", "ViewCount" },
                 values: new object[,]
                 {
-                    { new Guid("509c22b5-745b-4b44-bf21-830d9a2535ff"), new Guid("a751f387-b6b6-4018-9a86-68254c85a3e4"), "Lorem ipsum.", "Admin Test", new DateTime(2022, 12, 12, 10, 25, 36, 557, DateTimeKind.Local).AddTicks(9610), "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), false, "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Asp.net Core Deneme Makalesi 1", new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"), 15 },
-                    { new Guid("c6e5b283-133d-4282-96a9-6600e4ce9dca"), new Guid("93474aba-5916-42e7-a39f-b2ad533546c0"), "Visual Studio Lorem ipsum.", "Admin Test", new DateTime(2022, 12, 12, 10, 25, 36, 557, DateTimeKind.Local).AddTicks(9621), "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), false, "Admin Test", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Visual Studio Deneme Makalesi 1", new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"), 15 }
+                    { new Guid("ccb56b30-ed40-4721-a7bf-7a7dba28348e"), new Guid("93474aba-5916-42e7-a39f-b2ad533546c0"), "Visual Studio Lorem ipsum.", "Admin Test", new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(8494), "Admin Test", null, new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), false, "Admin Test", null, "Visual Studio Deneme Makalesi 1", new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"), 15 },
+                    { new Guid("e052d4c2-bba9-4ed9-95de-7ea86a205d76"), new Guid("a751f387-b6b6-4018-9a86-68254c85a3e4"), "Lorem ipsum.", "Admin Test", new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(8483), "Admin Test", null, new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), false, "Admin Test", null, "Asp.net Core Deneme Makalesi 1", new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"), 15 }
                 });
 
             migrationBuilder.InsertData(

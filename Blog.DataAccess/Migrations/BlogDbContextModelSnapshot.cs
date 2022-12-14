@@ -53,21 +53,21 @@ namespace Blog.DataAccess.Migrations
                         new
                         {
                             Id = new Guid("16ea936c-7a28-4c30-86a2-9a9704b6115e"),
-                            ConcurrencyStamp = "4cbd0880-4a83-40a0-864a-b5f1cbdc4ea0",
+                            ConcurrencyStamp = "13c76e52-531f-49c5-9025-baf4a8163568",
                             Name = "Superadmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = new Guid("7cb750cf-3612-4fb4-9f7d-a38ba8f16bf4"),
-                            ConcurrencyStamp = "8eecc16c-36e5-4a8d-90ee-6def10c2edee",
+                            ConcurrencyStamp = "45f9d7b1-b996-4fe6-b6ab-57bf5db87f80",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = new Guid("edf6c246-41d8-475f-8d92-41dddac3aefb"),
-                            ConcurrencyStamp = "6d7731db-069c-4bc3-a5c0-4c63533d4911",
+                            ConcurrencyStamp = "45d04f9c-83f5-4a57-b1f9-02398aab8155",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -180,7 +180,7 @@ namespace Blog.DataAccess.Migrations
                         {
                             Id = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ad03f374-e2d1-4fe0-b120-b470b38584e6",
+                            ConcurrencyStamp = "72cd4bfd-9cb2-4f0d-8fa4-5b773505ff66",
                             Email = "superadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Cem",
@@ -189,10 +189,10 @@ namespace Blog.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@GMAIL.COM",
                             NormalizedUserName = "SUPERADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEs+5lvTAPXMwqNEK0qVSzESgDxEXonglFQNgKjB/+QqbPoV8AtUW134UJXZazP4Eg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELuByWKgHbKijx8iNKUMkM9Z5ENy2Y2JR0Es+o67ln1caXNYGHDpijx+gl7qEDzm8A==",
                             PhoneNumber = "+905439999999",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "cea5e968-22e7-43c3-b141-58ca22b2dbbf",
+                            SecurityStamp = "52d73f9d-cff7-4cd9-9808-505f787a03ea",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@gmail.com"
                         },
@@ -200,7 +200,7 @@ namespace Blog.DataAccess.Migrations
                         {
                             Id = new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "337b1a94-c695-4aa6-bdcb-3a69d6a2ce43",
+                            ConcurrencyStamp = "a8c9fbb4-b2ed-49e7-b30b-63f06719c472",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -209,10 +209,10 @@ namespace Blog.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDYzJES/cQqClBV5uBmWqEBQr3UCeaesUorR425MmATaqZW4isfksjxKdpr0N9Dqbg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN5ngtjGvdBt+odM2kPOH4HiV6R1q6YwFOeEu2DBxEWoNdctz5JxOLtqn8bUHlhGlQ==",
                             PhoneNumber = "+905439999988",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "64bb5c60-2e8d-42df-b341-0cdd452cd8f7",
+                            SecurityStamp = "3dd6fa18-6f16-4876-a059-4aee6c051678",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });
@@ -332,10 +332,9 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("ImageId")
@@ -345,10 +344,9 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
@@ -374,34 +372,30 @@ namespace Blog.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("509c22b5-745b-4b44-bf21-830d9a2535ff"),
+                            Id = new Guid("e052d4c2-bba9-4ed9-95de-7ea86a205d76"),
                             CategoryId = new Guid("a751f387-b6b6-4018-9a86-68254c85a3e4"),
                             Content = "Lorem ipsum.",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2022, 12, 12, 10, 25, 36, 557, DateTimeKind.Local).AddTicks(9610),
+                            CreatedDate = new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(8483),
                             DeletedBy = "Admin Test",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageId = new Guid("b78f495c-995b-458e-9c49-ef26517917d6"),
                             IsDeleted = false,
                             ModifiedBy = "Admin Test",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Asp.net Core Deneme Makalesi 1",
                             UserId = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
                             ViewCount = 15
                         },
                         new
                         {
-                            Id = new Guid("c6e5b283-133d-4282-96a9-6600e4ce9dca"),
+                            Id = new Guid("ccb56b30-ed40-4721-a7bf-7a7dba28348e"),
                             CategoryId = new Guid("93474aba-5916-42e7-a39f-b2ad533546c0"),
                             Content = "Visual Studio Lorem ipsum.",
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2022, 12, 12, 10, 25, 36, 557, DateTimeKind.Local).AddTicks(9621),
+                            CreatedDate = new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(8494),
                             DeletedBy = "Admin Test",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ImageId = new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"),
                             IsDeleted = false,
                             ModifiedBy = "Admin Test",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Visual Studio Deneme Makalesi 1",
                             UserId = new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"),
                             ViewCount = 15
@@ -422,20 +416,18 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -451,24 +443,20 @@ namespace Blog.DataAccess.Migrations
                         {
                             Id = new Guid("a751f387-b6b6-4018-9a86-68254c85a3e4"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2022, 12, 12, 10, 25, 36, 557, DateTimeKind.Local).AddTicks(9960),
+                            CreatedDate = new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(8811),
                             DeletedBy = "Admin Test",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             ModifiedBy = "Admin Test",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "ASP.NET Core"
                         },
                         new
                         {
                             Id = new Guid("93474aba-5916-42e7-a39f-b2ad533546c0"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2022, 12, 12, 10, 25, 36, 557, DateTimeKind.Local).AddTicks(9965),
+                            CreatedDate = new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(8815),
                             DeletedBy = "Admin Test",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
                             ModifiedBy = "Admin Test",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Visual Studio"
                         });
                 });
@@ -487,10 +475,9 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DeletedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DeletedDate")
+                    b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FileName")
@@ -505,10 +492,9 @@ namespace Blog.DataAccess.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ModifiedDate")
+                    b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -520,27 +506,23 @@ namespace Blog.DataAccess.Migrations
                         {
                             Id = new Guid("b78f495c-995b-458e-9c49-ef26517917d6"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2022, 12, 12, 10, 25, 36, 558, DateTimeKind.Local).AddTicks(208),
+                            CreatedDate = new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(9164),
                             DeletedBy = "Admin Test",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FileName = "images/testimage",
                             FileType = "jpg",
                             IsDeleted = false,
-                            ModifiedBy = "Admin Test",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ModifiedBy = "Admin Test"
                         },
                         new
                         {
                             Id = new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2022, 12, 12, 10, 25, 36, 558, DateTimeKind.Local).AddTicks(212),
+                            CreatedDate = new DateTime(2022, 12, 14, 13, 47, 47, 732, DateTimeKind.Local).AddTicks(9169),
                             DeletedBy = "Admin Test",
-                            DeletedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FileName = "images/vstest",
                             FileType = "png",
                             IsDeleted = false,
-                            ModifiedBy = "Admin Test",
-                            ModifiedDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ModifiedBy = "Admin Test"
                         });
                 });
 
