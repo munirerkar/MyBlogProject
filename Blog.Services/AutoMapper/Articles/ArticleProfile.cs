@@ -15,6 +15,7 @@ namespace Blog.Business.AutoMapper.Articles
         {
             CreateMap<ArticleDto, Article>().ReverseMap();
             CreateMap<ArticleUpdateDto, Article>().ReverseMap();
+            CreateMap<ArticleUpdateDto, ArticleDto>().ReverseMap();
         }
     }
 }

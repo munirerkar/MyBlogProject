@@ -14,5 +14,7 @@ namespace Blog.Business.Abstract
         Task<ArticleDto> GetArticleWithCategoryNonDeletedAsync(Guid articleId);
 
         Task CreateArticleAsync(ArticleAddDto articleAddDto);
+
+        Task UpdateArticleAsync(ArticleUpdateDto articleUpdateDto);
     }
 }

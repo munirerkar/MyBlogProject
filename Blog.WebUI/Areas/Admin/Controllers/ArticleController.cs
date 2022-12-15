@@ -47,5 +47,15 @@ namespace Blog.WebUI.Areas.Admin.Controllers
             articleUpdateDto.Categories = categories;
             return View(articleUpdateDto);
         }
+        [HttpPost]
+        public async Task<IActionResult> Update(ArticleUpdateDto articleUpdateDto)
+        {
+            await articleService.UpdateArticleAsync(articleUpdateDto);
+            RedirectToAction("Index", "Article", new { Area = "Admin" });
+
+            var categories = await categoryService.GetAllCategoriesNonDeleted();
+            articleUpdateDto.Categories = categories;
+            return View(articleUpdateDto);
+        }
     }
 }
