@@ -25,7 +25,6 @@ namespace Blog.Business.Concrete
         public async Task CreateArticleAsync(ArticleAddDto articleAddDto)
         {
             var userId = Guid.Parse("3AA42229-1C0F-4630-8C1A-DB879ECD0427");
-
             var article = new Article
             {
                 Title = articleAddDto.Title,
@@ -33,7 +32,6 @@ namespace Blog.Business.Concrete
                 CategoryId = articleAddDto.CategoryId,
                 UserId = userId
             };
-
             await unitOfWork.GetRepository<Article>().AddAsync(article);
             await unitOfWork.SaveAsync();
         }
@@ -54,9 +52,7 @@ namespace Blog.Business.Concrete
         {
             var article = await unitOfWork.GetRepository<Article>().GetAsync(x => !x.IsDeleted && x.Id == articleUpdateDto.Id, x => x.Category);
 
-            article.Title= articleUpdateDto.Title;
-            article.Content= articleUpdateDto.Content;
-            article.CategoryId= articleUpdateDto.CategoryId;
+            mapper.Map<ArticleUpdateDto, Article>(articleUpdateDto, article);
 
             await unitOfWork.GetRepository<Article>().UpdateAsync(article); 
             await unitOfWork.SaveAsync(); 
