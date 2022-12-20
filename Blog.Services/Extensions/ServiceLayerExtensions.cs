@@ -4,6 +4,7 @@ using Blog.Business.FluentValidations;
 using Blog.DataAccess.UnitOfWorks;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace Blog.Business.Extensions
             services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddAutoMapper(assembly);
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddControllersWithViews().AddFluentValidation(opt =>
             {
                 opt.RegisterValidatorsFromAssemblyContaining<ArticleValidator>();
