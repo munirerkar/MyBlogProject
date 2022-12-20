@@ -1,4 +1,5 @@
 ﻿using Blog.Core.Entities;
+using Blog.Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
