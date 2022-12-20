@@ -52,9 +52,11 @@ namespace Blog.Business.Concrete
             mapper.Map<ArticleUpdateDto, Article>(articleUpdateDto, article);
 
             await unitOfWork.GetRepository<Article>().UpdateAsync(article); 
-            await unitOfWork.SaveAsync(); 
+            await unitOfWork.SaveAsync();
+
+            
         }
-        public async Task  SafeDeleteArticleAsync(Guid articleId)
+        public async Task<string> SafeDeleteArticleAsync(Guid articleId)
         {
             var article = await unitOfWork.GetRepository<Article>().GetByGuidAsync(articleId);
 
@@ -63,6 +65,8 @@ namespace Blog.Business.Concrete
 
             await unitOfWork.GetRepository<Article>().UpdateAsync(article);
             await unitOfWork.SaveAsync();
+
+            return article.Title;
         }
     }
 }
