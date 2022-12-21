@@ -21,7 +21,7 @@ namespace Blog.Business.Helpers.Images
         public ImageHelper(IWebHostEnvironment env)
         {
             this.env = env;
-            wwwroot = env.WebRootPath; 
+            wwwroot = env.WebRootPath;
         }
 
         private string ReplaceInvalidChars(string fileName)
@@ -76,7 +76,7 @@ namespace Blog.Business.Helpers.Images
                  .Replace(" ", "");
         }
 
-        public Task<ImageUploadedDto> Upload(string name, IFormFile imageFile,ImageType imageType, string folderName = null)
+        public async Task<ImageUploadedDto> Upload(string name, IFormFile imageFile, ImageType imageType, string folderName = null)
         {
             folderName ??= imageType == ImageType.User ? userImagesFolder : articleImagesFolder;
             if (!Directory.Exists($"{wwwroot}/{imgFolder}/{folderName}"))
@@ -87,13 +87,33 @@ namespace Blog.Business.Helpers.Images
             string fileExtansion = Path.GetExtension(imageFile.FileName);
 
             name = ReplaceInvalidChars(name);
+
+            DateTime dateTime = DateTime.Now;
+
+            string newFileName = $"{name}_{dateTime.Millisecond}{fileExtansion}";
+
+            var path = Path.Combine($"{wwwroot}/{imgFolder}/{folderName}", newFileName);
+
+            await using var stream = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None, 1024 * 1024, useAsync: false);
+            await imageFile.CopyToAsync(stream);
+            await stream.FlushAsync();
+
+            string message = imageType == ImageType.User ? $"{newFileName} isimli kullanıcı resmi başar eklenmiştir"
+                : $"{newFileName} isimli makale resmi başar eklenmiştir";
+
+            return new ImageUploadedDto()
+            {
+                FullName = $"{folderName}/{newFileName}"
+            };
         }
 
-        public Task Delete(string imageName)
+        public void Delete(string imageName)
         {
-            throw new NotImplementedException();
+            var fileToDelete = Path.Combine($"{wwwroot}/{imgFolder}/{imgFolder}/{imageName}");
+            if (File.Exists(fileToDelete))
+            {
+                File.Delete(fileToDelete);
+            }
         }
-
-        
     }
 }

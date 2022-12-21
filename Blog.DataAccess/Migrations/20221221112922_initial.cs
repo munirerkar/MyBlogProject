@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Blog.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -252,9 +252,9 @@ namespace Blog.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { new Guid("16ea936c-7a28-4c30-86a2-9a9704b6115e"), "164ba567-30d5-4ff8-80bd-9afc8433595b", "Superadmin", "SUPERADMIN" },
-                    { new Guid("7cb750cf-3612-4fb4-9f7d-a38ba8f16bf4"), "265dbd43-73d9-412f-aa1a-cc3efb79c895", "Admin", "ADMIN" },
-                    { new Guid("edf6c246-41d8-475f-8d92-41dddac3aefb"), "b7097db6-09d4-42f7-8a8f-17e93ce35cc9", "User", "USER" }
+                    { new Guid("16ea936c-7a28-4c30-86a2-9a9704b6115e"), "86577dca-8504-4738-a4d8-8c00cc324c3d", "Superadmin", "SUPERADMIN" },
+                    { new Guid("7cb750cf-3612-4fb4-9f7d-a38ba8f16bf4"), "6f25ae55-4823-436e-9910-ebaecc22c4c0", "Admin", "ADMIN" },
+                    { new Guid("edf6c246-41d8-475f-8d92-41dddac3aefb"), "291682db-0d04-4690-9380-806e84600e8e", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -262,8 +262,8 @@ namespace Blog.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "DeletedBy", "DeletedDate", "IsDeleted", "ModifiedBy", "ModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("93474aba-5916-42e7-a39f-b2ad533546c0"), "Admin Test", new DateTime(2022, 12, 15, 14, 22, 14, 348, DateTimeKind.Local).AddTicks(5392), "Admin Test", null, false, "Admin Test", null, "Visual Studio" },
-                    { new Guid("a751f387-b6b6-4018-9a86-68254c85a3e4"), "Admin Test", new DateTime(2022, 12, 15, 14, 22, 14, 348, DateTimeKind.Local).AddTicks(5388), "Admin Test", null, false, "Admin Test", null, "ASP.NET Core" }
+                    { new Guid("93474aba-5916-42e7-a39f-b2ad533546c0"), "Admin Test", new DateTime(2022, 12, 21, 14, 29, 21, 776, DateTimeKind.Local).AddTicks(8619), "Admin Test", null, false, "Admin Test", null, "Visual Studio" },
+                    { new Guid("a751f387-b6b6-4018-9a86-68254c85a3e4"), "Admin Test", new DateTime(2022, 12, 21, 14, 29, 21, 776, DateTimeKind.Local).AddTicks(8615), "Admin Test", null, false, "Admin Test", null, "ASP.NET Core" }
                 });
 
             migrationBuilder.InsertData(
@@ -271,8 +271,8 @@ namespace Blog.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedBy", "CreatedDate", "DeletedBy", "DeletedDate", "FileName", "FileType", "IsDeleted", "ModifiedBy", "ModifiedDate" },
                 values: new object[,]
                 {
-                    { new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), "Admin Test", new DateTime(2022, 12, 15, 14, 22, 14, 348, DateTimeKind.Local).AddTicks(5490), "Admin Test", null, "images/vstest", "png", false, "Admin Test", null },
-                    { new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), "Admin Test", new DateTime(2022, 12, 15, 14, 22, 14, 348, DateTimeKind.Local).AddTicks(5487), "Admin Test", null, "images/testimage", "jpg", false, "Admin Test", null }
+                    { new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), "Admin Test", new DateTime(2022, 12, 21, 14, 29, 21, 776, DateTimeKind.Local).AddTicks(8832), "Admin Test", null, "images/vstest", "png", false, "Admin Test", null },
+                    { new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), "Admin Test", new DateTime(2022, 12, 21, 14, 29, 21, 776, DateTimeKind.Local).AddTicks(8827), "Admin Test", null, "images/testimage", "jpg", false, "Admin Test", null }
                 });
 
             migrationBuilder.InsertData(
@@ -280,8 +280,8 @@ namespace Blog.DataAccess.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "ImageId", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"), 0, "8dbf40ed-bb1a-46ba-8076-d411b994dd43", "admin@gmail.com", false, "Admin", new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), "User", false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEFMwVv2QR21jilr0Lll0lhU2gMBdDzynhw+mG+SYBl8MlbTpvsnW4E6N/f6XtnoSYQ==", "+905439999988", false, "48d62c52-8a76-4211-9d1f-7c86414e1df7", false, "admin@gmail.com" },
-                    { new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"), 0, "fc49fdce-3480-4467-a2c7-bcbcebcd961e", "superadmin@gmail.com", true, "Cem", new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), "Keskin", false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEDzIPeUzN+wDWYZbBCq6QB+wNfI9h0hsa5t4/8sG5Uu9jjV78Va3ZzDLOwqhCMqhRQ==", "+905439999999", true, "68b52295-c085-4e4c-80db-df76781bf443", false, "superadmin@gmail.com" }
+                    { new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"), 0, "98dcf1f4-8adc-45c1-b957-f9d701289d7d", "admin@gmail.com", false, "Admin", new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), "User", false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEPGerW2DCgbiJh3vBpZ3OyywTB/N9axtd19i1et58hBnVuDVqYoclbiviz9OH++XQA==", "+905439999988", false, "52b62a83-9470-4fb0-8c6e-4c02f605d690", false, "admin@gmail.com" },
+                    { new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"), 0, "dbe73497-2e18-4d79-a977-cd5373c0de1b", "superadmin@gmail.com", true, "Mano", new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), "Ekr", false, null, "SUPERADMIN@GMAIL.COM", "SUPERADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEAbU7xaK4lJeP3VDmZBuvAfTfTeEmRDx/e0mLSsy7LSDkt0em8GE+EplR2YEtmkvJQ==", "+905439999999", true, "0fffd624-6488-4440-9eaf-f535926d40ff", false, "superadmin@gmail.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -289,8 +289,8 @@ namespace Blog.DataAccess.Migrations
                 columns: new[] { "Id", "CategoryId", "Content", "CreatedBy", "CreatedDate", "DeletedBy", "DeletedDate", "ImageId", "IsDeleted", "ModifiedBy", "ModifiedDate", "Title", "UserId", "ViewCount" },
                 values: new object[,]
                 {
-                    { new Guid("0c0f6e37-2ee6-4528-b1c1-13c7e1c6603b"), new Guid("a751f387-b6b6-4018-9a86-68254c85a3e4"), "Lorem ipsum.", "Admin Test", new DateTime(2022, 12, 15, 14, 22, 14, 348, DateTimeKind.Local).AddTicks(5172), "Admin Test", null, new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), false, "Admin Test", null, "Asp.net Core Deneme Makalesi 1", new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"), 15 },
-                    { new Guid("87f12798-9155-4d03-9163-4511dc002a5b"), new Guid("93474aba-5916-42e7-a39f-b2ad533546c0"), "Visual Studio Lorem ipsum.", "Admin Test", new DateTime(2022, 12, 15, 14, 22, 14, 348, DateTimeKind.Local).AddTicks(5212), "Admin Test", null, new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), false, "Admin Test", null, "Visual Studio Deneme Makalesi 1", new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"), 15 }
+                    { new Guid("05071936-d7f5-49d6-a97f-1debc7985f7d"), new Guid("a751f387-b6b6-4018-9a86-68254c85a3e4"), "Lorem ipsum.", "Admin Test", new DateTime(2022, 12, 21, 14, 29, 21, 776, DateTimeKind.Local).AddTicks(8076), "Admin Test", null, new Guid("b78f495c-995b-458e-9c49-ef26517917d6"), false, "Admin Test", null, "Asp.net Core Deneme Makalesi 1", new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"), 15 },
+                    { new Guid("3d85afa9-fa19-4aad-85a3-aea932e25977"), new Guid("93474aba-5916-42e7-a39f-b2ad533546c0"), "Visual Studio Lorem ipsum.", "Admin Test", new DateTime(2022, 12, 21, 14, 29, 21, 776, DateTimeKind.Local).AddTicks(8087), "Admin Test", null, new Guid("11b1a1f9-e7f7-44cc-8e3b-d408f1e59a50"), false, "Admin Test", null, "Visual Studio Deneme Makalesi 1", new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"), 15 }
                 });
 
             migrationBuilder.InsertData(

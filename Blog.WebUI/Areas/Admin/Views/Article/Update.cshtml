@@ -1,7 +1,7 @@
 ﻿@model ArticleUpdateDto
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light">Makale Yönetimi /</span> Makale Ekle
+        <span class="text-muted fw-light">Makale Yönetimi /</span> Makale Güncelle
     </h4>
 
     <div class="row">
@@ -26,7 +26,18 @@
                             <label asp-for="Content" class="form-label">İçerik</label>                         
                             <textarea asp-for="Content" type="text" class="form-control mb-3" id="defaultFormControlInput" placeholder="içeriği yaz" aria-describedby="defaultFormControlHelp"></textarea>
                             <span asp-validation-for="Content" class="text-danger"></span>
-                        </div>                                                                                             
+                        </div>
+                        <div class="row">
+                        <div class="form-group col-md-5 mb-3">
+                            <label asp-for="Image.FileName" class="form-label d-block">Mevcut Resim</label>
+                            <img style="height:25;width:25em" src="~/images/@Model.Image.FileName" alt="@Model.Title"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Photo" class="form-label">Yeni Resim seçin</label>
+                            <input asp-for="Photo" type="file" class="form-control mb-3" id="defaultFormControlInput" aria-describedby="defaultFormControlHelp">
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                        </div>
+                        </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Kaydet</button:>
                         </div>
