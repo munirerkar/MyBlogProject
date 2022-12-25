@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Blog.Entities.DTOs.Articles;
+using Blog.Entities.DTOs.Categories;
 using Blog.Entities.Entities;
 using System;
 using System.Collections.Generic;
