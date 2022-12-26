@@ -46,5 +46,40 @@ namespace Blog.Business.Concrete
             await unitOfWork.GetRepository<Category>().AddAsync(category);
             await unitOfWork.SaveAsync();
         }
+        public async Task<Category> GetCategoryByGuid(Guid id)
+        {
+            var category = await unitOfWork.GetRepository<Category>().GetByGuidAsync(id);
+            
+            return category;
+        }
+        public async Task<string> UpdateCategoryAsync(CategoryUpdateDto categoryUpdateDto)
+        {
+            var userEmail = _user.GetLoggedInEmail();
+            var category = await unitOfWork.GetRepository<Category>().GetAsync(x => !x.IsDeleted && x.Id == categoryUpdateDto.Id);
+            //mapper.Map<ArticleUpdateDto, Article>(articleUpdateDto, article);
+            category.Name = categoryUpdateDto.Name;
+            category.ModifiedDate = DateTime.Now;
+            category.ModifiedBy = userEmail;
+
+            await unitOfWork.GetRepository<Category>().UpdateAsync(category);
+            await unitOfWork.SaveAsync();
+
+            return category.Name;
+        }
+        public async Task<string> SafeDeleteArticleAsync(Guid categoryId)
+        {
+            var userEmail = _user.GetLoggedInEmail();
+
+            var category = await unitOfWork.GetRepository<Category>().GetByGuidAsync(categoryId);
+
+            category.IsDeleted = true;
+            category.DeletedDate = DateTime.Now;
+            category.DeletedBy = userEmail;
+
+            await unitOfWork.GetRepository<Category>().UpdateAsync(category);
+            await unitOfWork.SaveAsync();
+
+            return category.Name;
+        }
     }
 }

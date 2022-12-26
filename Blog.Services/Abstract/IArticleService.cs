@@ -17,5 +17,7 @@ namespace Blog.Business.Abstract
 
         Task UpdateArticleAsync(ArticleUpdateDto articleUpdateDto);
         Task<string> SafeDeleteArticleAsync(Guid articleId);
+
+
     }
 }
