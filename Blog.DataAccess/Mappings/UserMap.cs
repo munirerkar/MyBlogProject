@@ -1,4 +1,4 @@
-﻿using Blog.Entities.Entities;
+﻿ using Blog.Entities.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

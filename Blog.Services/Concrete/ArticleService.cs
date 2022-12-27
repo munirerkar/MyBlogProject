@@ -75,10 +75,10 @@ namespace Blog.Business.Concrete
                 await unitOfWork.GetRepository<Image>().AddAsync(image);
                 article.ImageId = image.Id;
             }
-            //mapper.Map<ArticleUpdateDto, Article>(articleUpdateDto, article);
-            article.Title = articleUpdateDto.Title;
-            article.Content = articleUpdateDto.Content;
-            article.CategoryId = articleUpdateDto.CategoryId;
+            mapper.Map(articleUpdateDto, article);
+            //article.Title = articleUpdateDto.Title;
+            //article.Content = articleUpdateDto.Content;
+            //article.CategoryId = articleUpdateDto.CategoryId;
             article.ModifiedDate = DateTime.Now;
             article.ModifiedBy = userEmail;
             

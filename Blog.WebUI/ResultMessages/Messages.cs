@@ -19,17 +19,32 @@
         }
         public static class Category
         {
-            public static string Add(string articleTitle)
+            public static string Add(string categoryName)
             {
-                return $"{articleTitle} isimli Category başarıyla eklenmiştir.";
+                return $"{categoryName} isimli Category başarıyla eklenmiştir.";
             }
-            public static string Update(string articleTitle)
+            public static string Update(string categoryName)
             {
-                return $"{articleTitle} isimli Category başarıyla güncellenmiştir.";
+                return $"{categoryName} isimli Category başarıyla güncellenmiştir.";
             }
-            public static string Delete(string articleTitle)
+            public static string Delete(string categoryName)
             {
-                return $"{articleTitle} isimli Category başarıyla silinmiştir.";
+                return $"{categoryName} isimli Category başarıyla silinmiştir.";
+            }
+        }
+        public static class User
+        {
+            public static string Add(string userName)
+            {
+                return $"{userName} email adresli kullanıcı başarıyla eklenmiştir.";
+            }
+            public static string Update(string userName)
+            {
+                return $"{userName} email adresli kullanıcı başarıyla güncellenmiştir.";
+            }
+            public static string Delete(string userName)
+            {
+                return $"{userName} email adresli kullanıcı başarıyla silinmiştir.";
             }
         }
     }

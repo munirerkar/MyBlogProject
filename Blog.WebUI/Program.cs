@@ -1,5 +1,6 @@
 using Blog.Business.Abstract;
 using Blog.Business.Concrete;
+using Blog.Business.Describers;
 using Blog.Business.Extensions;
 using Blog.DataAccess.Context;
 using Blog.DataAccess.Extensions;
@@ -33,7 +34,10 @@ builder.Services.AddIdentity<AppUser, AppRole>(opt =>
     opt.Password.RequireUppercase = false;
 
 })
-    .AddRoleManager<RoleManager<AppRole>>().AddEntityFrameworkStores<BlogDbContext>().AddDefaultTokenProviders();
+    .AddRoleManager<RoleManager<AppRole>>()
+    .AddErrorDescriber<CustomIdentityErrorDescriber>()
+    .AddEntityFrameworkStores<BlogDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.ConfigureApplicationCookie(config =>
 {
