@@ -16,6 +16,10 @@
             {
                 return $"{articleTitle} başlıklı makale başarıyla silinmiştir.";
             }
+            public static string Undo(string articleTitle)
+            {
+                return $"{articleTitle} başlıklı makale başarıyla geri alınmıştır.";
+            }
         }
         public static class Category
         {
