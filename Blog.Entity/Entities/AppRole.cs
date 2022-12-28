@@ -9,5 +9,6 @@ namespace Blog.Entities.Entities
 {
     public class AppRole : IdentityRole<Guid>
     {
+        public int MyProperty { get; set; }
     }
 }

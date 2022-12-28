@@ -35,6 +35,10 @@
             {
                 return $"{categoryName} isimli Category başarıyla silinmiştir.";
             }
+            public static string Undo(string categoryName)
+            {
+                return $"{categoryName} başlıklı makale başarıyla geri alınmıştır.";
+            }
         }
         public static class User
         {
