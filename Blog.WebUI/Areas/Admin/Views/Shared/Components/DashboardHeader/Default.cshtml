@@ -1,4 +1,6 @@
-﻿<li class="nav-item navbar-dropdown dropdown-user dropdown">
+﻿@model UserDto
+
+<li class="nav-item navbar-dropdown dropdown-user dropdown">
             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
               <div class="avatar avatar-online">
                 <img src="~/sneat/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle">
@@ -14,8 +16,8 @@
                       </div>
                     </div>
                     <div class="flex-grow-1">
-                      <span class="fw-semibold d-block"></span>
-                      <small class="text-muted">Admin</small>
+                      <span class="fw-semibold d-block">@Model.FirstName @Model.LastName</span>
+                      <small class="text-muted">@Model.Role</small>
                     </div>
                   </div>
                 </a>

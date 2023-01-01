@@ -5,11 +5,14 @@ using Blog.Business.Extensions;
 using Blog.Entities.DTOs.Articles;
 using Blog.Entities.DTOs.Categories;
 using Blog.Entities.Entities;
+using Blog.WebUI.Consts;
 using Blog.WebUI.ResultMessages;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace Blog.WebUI.Areas.Admin.Controllers
 {
@@ -28,23 +31,27 @@ namespace Blog.WebUI.Areas.Admin.Controllers
             this.toast = toast;
             this.mapper = mapper;
         }
+        [Authorize(Roles = $"{RoleConsts.SuperAdmin},{RoleConsts.Admin},{RoleConsts.User}")]
         public async Task<IActionResult> Index()
         {
             var categories = await categoryService.GetAllCategoriesNonDeleted();
             return View(categories);
         }
+        [Authorize(Roles = $"{RoleConsts.SuperAdmin},{RoleConsts.Admin}")]
         public async Task<IActionResult> DeletedCategory()
         {
             var categories = await categoryService.GetAllCategoriesDeleted();
             return View(categories);
         }
         [HttpGet]
+        [Authorize(Roles = $"{RoleConsts.SuperAdmin},{RoleConsts.Admin}")]
         public IActionResult Add()
         {
             
             return View();
         }
         [HttpPost]
+        [Authorize(Roles = $"{RoleConsts.SuperAdmin},{RoleConsts.Admin}")]
         public async Task<IActionResult> Add(CategoryAddDto categoryAddDto)
         {
             var map = mapper.Map<Category>(categoryAddDto);
@@ -60,6 +67,7 @@ namespace Blog.WebUI.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
+        [Authorize(Roles = $"{RoleConsts.SuperAdmin},{RoleConsts.Admin}")]
         public async Task<IActionResult> AddWithAjax([FromBody] CategoryAddDto categoryAddDto)
         {
             var map = mapper.Map<Category>(categoryAddDto);
@@ -78,6 +86,7 @@ namespace Blog.WebUI.Areas.Admin.Controllers
             }
         }
         [HttpGet]
+        [Authorize(Roles = $"{RoleConsts.SuperAdmin},{RoleConsts.Admin}")]
         public async Task<IActionResult> Update(Guid categoryId)
         {
             var category = await categoryService.GetCategoryByGuid(categoryId);
@@ -85,6 +94,7 @@ namespace Blog.WebUI.Areas.Admin.Controllers
             return View(map);
         }
         [HttpPost]
+        [Authorize(Roles = $"{RoleConsts.SuperAdmin},{RoleConsts.Admin}")]
         public async Task<IActionResult> Update(CategoryUpdateDto categoryUpdateDto)
         {
             var map = mapper.Map<Category>(categoryUpdateDto);
@@ -98,12 +108,14 @@ namespace Blog.WebUI.Areas.Admin.Controllers
             result.AddToModelState(this.ModelState);
             return View();
         }
+        [Authorize(Roles = $"{RoleConsts.SuperAdmin},{RoleConsts.Admin}")]
         public async Task<IActionResult> Delete(Guid categoryId)
         {
             var name = await categoryService.SafeDeleteArticleAsync(categoryId);
             toast.AddSuccessToastMessage(Messages.Category.Delete(name), new ToastrOptions { Title = "Başarılı!" });
             return RedirectToAction("Index", "Category", new { Area = "Admin" });
         }
+        [Authorize(Roles = $"{RoleConsts.SuperAdmin},{RoleConsts.Admin}")]
         public async Task<IActionResult> UndoDelete(Guid categoryId)
         {
             var name = await categoryService.UndoDeleteArticleAsync(categoryId);
