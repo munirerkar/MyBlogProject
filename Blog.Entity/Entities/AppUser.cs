@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Blog.Core.Entities;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Blog.Entities.Entities
 {
-    public class AppUser : IdentityUser<Guid>
+    public class AppUser : IdentityUser<Guid>,IEntityBase
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Guid ImageId { get; set; } = Guid.Parse("11B1A1F9-E7F7-44CC-8E3B-D408F1E59A50");
+        public Guid ImageId { get; set; } = Guid.Parse("0ccfb66f-8e07-46f8-a911-f2d1c7db49f5");
         public Image Image { get; set; }
         public ICollection<Article> Articles { get; set; }
     }

@@ -23,8 +23,6 @@ namespace Blog.WebUI.Areas.Admin.ViewComponents
             var map = mapper.Map<UserDto>(loggendInUser);
             var role = string.Join("", await userManager.GetRolesAsync(loggendInUser));
             map.Role = role;
-
-
             return View(map);
         }
     }
