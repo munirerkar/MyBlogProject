@@ -12,7 +12,7 @@ namespace Blog.Entities.Entities
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Guid ImageId { get; set; } = Guid.Parse("0ccfb66f-8e07-46f8-a911-f2d1c7db49f5");
+        public Guid ImageId { get; set; } = Guid.Parse("e72153c8-8f2b-40ea-a154-e25d0f5a2226");
         public Image Image { get; set; }
         public ICollection<Article> Articles { get; set; }
     }
