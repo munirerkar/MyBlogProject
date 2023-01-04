@@ -27,28 +27,18 @@ namespace Blog.WebUI.Areas.Admin.Controllers
     [Area("Admin")]
     public class UserController : Controller  
     {
-        private readonly UserManager<AppUser> userManager;
         private readonly IUserService userService;
-        private readonly RoleManager<AppRole> roleManager;
         private readonly IMapper mapper;
         private readonly IToastNotification toast;
-        
         private readonly IValidator<AppUser> validator;
-        private readonly SignInManager<AppUser> signInManager;
-        private readonly IImageHelper imageHelper;
-        private readonly IUnitOfWork unitOfWork;
+        
 
-        public UserController(UserManager<AppUser> userManager,IUserService userService,RoleManager<AppRole> roleManager,IMapper mapper,IToastNotification toast,IValidator<AppUser> validator,SignInManager<AppUser> signInManager,IImageHelper imageHelper,IUnitOfWork unitOfWork)
+        public UserController(IUserService userService,IMapper mapper,IToastNotification toast,IValidator<AppUser> validator)
         {
-            this.userManager = userManager;
             this.userService = userService;
-            this.roleManager = roleManager;
             this.mapper = mapper;
             this.toast = toast;
             this.validator = validator;
-            this.signInManager = signInManager;
-            this.imageHelper = imageHelper;
-            this.unitOfWork = unitOfWork;
         }
         [Authorize(Roles = $"{RoleConsts.SuperAdmin},{RoleConsts.Admin},{RoleConsts.User}")]
         public async Task<IActionResult> Index()
