@@ -173,8 +173,9 @@ namespace Blog.WebUI.Areas.Admin.Controllers
                 }
                 else
                 {
+                    var profile = await userService.GetUserProfileAsync();
                     toast.AddErrorToastMessage("Profil Güncelleme Tamamlanamadı", new ToastrOptions { Title = "Başarısız!" });
-                    return View();
+                    return View(profile);
                 }
             }
             else

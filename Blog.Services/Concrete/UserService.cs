@@ -140,7 +140,7 @@ namespace Blog.Business.Concrete
             var userId = _user.GetLoggedInUserId();
             var user = await GetAppUserByIdAsync(userId);
             var isVerifed = await userManager.CheckPasswordAsync(user, userProfileDto.CurrentPassword);
-            if (isVerifed && userProfileDto.NewPassword != null && userProfileDto.Photo != null)
+            if (isVerifed && userProfileDto.NewPassword != null)
             {
                 var result = await userManager.ChangePasswordAsync(user, userProfileDto.CurrentPassword, userProfileDto.NewPassword);
                 if (result.Succeeded)
@@ -149,7 +149,8 @@ namespace Blog.Business.Concrete
                     await signInManager.SignOutAsync();
                     await signInManager.PasswordSignInAsync(user, userProfileDto.NewPassword, true, false);
                     var map = mapper.Map(userProfileDto, user);
-                    user.ImageId = await UploadImageForUser(userProfileDto);
+                    if(userProfileDto.Photo != null)
+                        user.ImageId = await UploadImageForUser(userProfileDto);
                     await userManager.UpdateAsync(user);
                     await unitOfWork.SaveAsync();
                     return true;
@@ -159,17 +160,14 @@ namespace Blog.Business.Concrete
                     return false;
                 }
             }
-            else if (isVerifed && userProfileDto.Photo != null)
+            else if (isVerifed)
             {
                 await userManager.UpdateSecurityStampAsync(user);
 
                 var map = mapper.Map(userProfileDto, user);
 
-                var imageUpload = await imageHelper.Upload($"{userProfileDto.FirstName}{userProfileDto.LastName}", userProfileDto.Photo, ImageType.User);
-                Image image = new(imageUpload.FullName, userProfileDto.Photo.ContentType, user.Email);
-                await unitOfWork.GetRepository<Image>().AddAsync(image);
-
-                user.ImageId = await UploadImageForUser(userProfileDto);
+                if (userProfileDto.Photo != null)
+                    user.ImageId = await UploadImageForUser(userProfileDto);
 
                 await userManager.UpdateAsync(user);
 
